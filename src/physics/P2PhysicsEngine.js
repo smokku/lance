@@ -19,24 +19,62 @@ class P2PhysicsEngine extends PhysicsEngine {
         this.world.step(dt || this.options.dt);
     }
 
-    // add a circle
-    addCircle(radius, mass) {
-
-        // create a body, add shape, add to world
-        let body = new p2.Body({ mass, position: [0, 0] });
-        body.addShape(new p2.Circle({ radius }));
-        this.world.addBody(body);
-
-        return body;
-    }
+    // add objects to the world:
+    // create a body, add shape, add to world
 
     addBox(width, height, mass) {
-
-        // create a body, add shape, add to world
         let body = new p2.Body({ mass, position: [0, 0] });
         body.addShape(new p2.Box({ width, height }));
         this.world.addBody(body);
+        return body;
+    }
 
+    addCapsule(length, radius, mass) {
+        let body = new p2.Body({ mass, position: [0, 0] });
+        body.addShape(new p2.Capsule({ length, radius }));
+        this.world.addBody(body);
+        return body;
+    }
+
+    addCircle(radius, mass) {
+        let body = new p2.Body({ mass, position: [0, 0] });
+        body.addShape(new p2.Circle({ radius }));
+        this.world.addBody(body);
+        return body;
+    }
+
+    addConvex(vertices, axes, mass) {
+        let body = new p2.Body({ mass, position: [0, 0] });
+        body.addShape(new p2.Convex({ vertices, axes }));
+        this.world.addBody(body);
+        return body;
+    }
+
+    addHeightfield(heights, minValue, maxValue, elementWidth, mass) {
+        let body = new p2.Body({ mass, position: [0, 0] });
+        body.addShape(new p2.Heightfield({ heights, minValue, maxValue, elementWidth }));
+        this.world.addBody(body);
+        return body;
+    }
+
+    addLine(length, mass) {
+        let body = new p2.Body({ mass, position: [0, 0] });
+        body.addShape(new p2.Line({ length }));
+        this.world.addBody(body);
+        return body;
+    }
+
+    addParticle(mass) {
+        let body = new p2.Body({ mass, position: [0, 0] });
+        body.addShape(new p2.Particle({}));
+        this.world.addBody(body);
+        return body;
+    }
+
+    addPlane(mass) {
+        let body = new p2.Body({ mass, position: [0, 0] });
+        body.addShape(new p2.Plane({}));
+        this.world.addBody(body);
         return body;
     }
 
