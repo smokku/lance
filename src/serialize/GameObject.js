@@ -21,7 +21,7 @@ class GameObject extends Serializable {
     * Creates an instance of a game object.
     * @param {GameEngine} gameEngine - the gameEngine this object will be used in
     * @param {Object} options - options for instantiation of the GameObject
-    * @param {Number} id - if set, the new instantiated object will be set to this id instead of being generated a new one. Use with caution!
+    * @param {Number} options.id - if set, the new instantiated object will be set to this id instead of being generated a new one. Use with caution!
     * @param {Object} props - additional properties for creation
     * @param {Number} props.playerId - the playerId value of the player who owns this object
     */

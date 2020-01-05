@@ -105,7 +105,7 @@ class PhysicalObject2D extends GameObject {
      * angle, and angularVelocity.  In each case, you can specify a min value, max
      * value, and a percent value.
      *
-     * @return {Object} bending - an object with bending paramters
+     * @return {Object} bending - an object with bending parameters
      */
     get bending() {
         return {
